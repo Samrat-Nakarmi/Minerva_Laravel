@@ -1,4 +1,4 @@
-{{-- {% load course_extras %} --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,18 +24,14 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <div class="nav-item dropdown d-flex">
           <a class="nav-link dropdown-toggle" href="#" style="color: #ffff" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{-- {{ user.username }} --}}
           </a>
           <a class="nav-link"  id="new-course" href="/new" style="color: #ffff" role="button" aria-expanded="false">
              <p style="padding-left: 30px;">Courses</p>
           </a>
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            {{-- {% if request.user|has_group:"teachers" %} --}}
-            <li><a class="dropdown-item" href="/create-course" >Create Course</a></li>
-            {{-- {% else %} --}}
+            <li><a class="dropdown-item" href="/create_course" >Create Course</a></li>
             <li><a class="dropdown-item" href="/verify" >Apply for Teacher</a></li>
-            {{-- {% endif %} --}}
             <li><a class="dropdown-item" href="/change">Edit Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/logout">Logout</a></li>
@@ -96,3 +92,5 @@
     padding-left: 3px;
   }
 </style>
+
+@yield("content")

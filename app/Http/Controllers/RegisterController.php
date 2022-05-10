@@ -47,7 +47,7 @@ class RegisterController extends Controller
         if ($data->username == $uuser_name && $data->password == $ppassword)
         {
             $request->session()->put('user', $data);
-            return view('dashboard');
+            return redirect('dashboard');
         }else{
             $errors = ["Incorrect Credentials"];
             return view('auth.login',compact('errors'));

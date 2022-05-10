@@ -16,6 +16,12 @@ class BaseController extends Controller
         return view('dashboard');
     }
 
+    public function course_create()
+    {
+
+        return view('create_course');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
