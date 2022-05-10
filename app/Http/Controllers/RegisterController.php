@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -38,7 +39,7 @@ class RegisterController extends Controller
         ]);
         $uuser_name = $request->username;
         $ppassword = $request->password;
-        $data = DB::table('teachers')->where('username',$uuser_name)->first();
+        $data = DB::table('users')->where('username',$uuser_name)->first();
         if ($data == null)
         {
             $errors = ["No Such User : ".$uuser_name];
@@ -70,9 +71,9 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'email'=>'required|email|unique:teachers',
+            'email'=>'required|email|unique:users',
             'password'=>'required',
-            'username'=>'required|unique:teachers'
+            'username'=>'required|unique:users'
         ]);
         $email = $request->email;
         $password = $request->password;
@@ -82,7 +83,7 @@ class RegisterController extends Controller
             "username" => $username,
             "password" => $password
         ];
-        Teacher::create($data);
+        User::create($data);
         $message = "User Registered";
         return view('auth.login',compact('message'));
     }

@@ -1,5 +1,7 @@
-@extends("dashboard")
+@extends("nav")
+@extends("footer")
 
+@section("nav")
     <br>
     <br>
 
@@ -27,4 +29,7 @@
     <br>
     <br>
     <br>
+@endsection
 
+@section("footer")
+@endsection

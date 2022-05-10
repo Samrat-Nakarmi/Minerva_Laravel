@@ -30,6 +30,7 @@
           </a>
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
             <li><a class="dropdown-item" href="/create_course" >Create Course</a></li>
             <li><a class="dropdown-item" href="/verify" >Apply for Teacher</a></li>
             <li><a class="dropdown-item" href="/change">Edit Profile</a></li>

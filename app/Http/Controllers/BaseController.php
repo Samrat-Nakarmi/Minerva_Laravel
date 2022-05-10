@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Teacher;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class BaseController extends Controller
 {
@@ -18,8 +21,18 @@ class BaseController extends Controller
 
     public function course_create()
     {
+        $username = Auth()->user()->username;
+        $data = DB::table('teachers')->where('username',$username)->first();
+        if ($data == null)
+        {
+            return redirect('dashboard');
 
-        return view('create_course');
+        }
+        else
+        {
+            return view('create_course');
+        }
+
     }
 
     /**
