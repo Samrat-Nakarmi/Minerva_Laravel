@@ -30,6 +30,11 @@
                 <input type="text" placeholder="Username" name="username" required>
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>
+                <label for="cars">Post:</label>
+                <select id="post" name="post" size="3">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                </select>
                 <br>
 
               <button type="submit" style="background-color: #2832C2;">Register</button>

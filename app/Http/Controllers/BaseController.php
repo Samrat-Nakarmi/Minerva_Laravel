@@ -21,7 +21,8 @@ class BaseController extends Controller
 
     public function course_create()
     {
-        $username = Auth()->user()->username;
+        dd(Auth());
+        $username = Auth::user()->username;
         $data = DB::table('teachers')->where('username',$username)->first();
         if ($data == null)
         {

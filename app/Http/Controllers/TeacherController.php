@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class TeacherController extends Controller
@@ -31,7 +31,7 @@ class TeacherController extends Controller
         if ($data == null)
         {
             $errors = ["No Such User : ".$uuser_name];
-            return view('teacher',compact('errors'));
+            return view('dashboard',compact('errors'));
         }
         if ($data->username == $uuser_name && $data->password == $ppassword)
         {
@@ -39,7 +39,7 @@ class TeacherController extends Controller
             return redirect('dashboard');
         }else{
             $errors = ["Incorrect Credentials"];
-            return view('teacher',compact('errors'));
+            return view('dashboard',compact('errors'));
         }
     }
 
@@ -56,9 +56,11 @@ class TeacherController extends Controller
         $data = [
             "email" => $email,
             "username" => $username,
-            "password" => $password
+            "password" => $password,
+            "name" => $request->name,
+            "post"=> $request->post
         ];
-        Teacher::create($data);
+        User::create($data);
         $message = "User Registered";
         Auth::attempt(['email' => $email, 'password' => $password]);
         return view('dashboard',compact('message'));
